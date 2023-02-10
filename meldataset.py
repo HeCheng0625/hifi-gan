@@ -142,6 +142,8 @@ class MelDataset(torch.utils.data.Dataset):
         else:
             mel = np.load(
                 os.path.join(self.base_mels_path, os.path.splitext(os.path.split(filename)[-1])[0] + '.npy'))
+            if len(mel.shape) == 2:
+                mel = np.expand_dims(mel, 0)
             mel = torch.from_numpy(mel)
 
             if len(mel.shape) < 3:

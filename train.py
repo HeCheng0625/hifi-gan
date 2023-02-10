@@ -258,6 +258,7 @@ def main():
         h.num_gpus = torch.cuda.device_count()
         h.batch_size = int(h.batch_size / h.num_gpus)
         print('Batch size per GPU :', h.batch_size)
+        print('Fine tune :', a.fine_tuning)
     else:
         pass
 
