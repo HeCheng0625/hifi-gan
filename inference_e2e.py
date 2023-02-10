@@ -46,7 +46,8 @@ def inference(a):
     with torch.no_grad():
         for i, filname in enumerate(filelist):
             x = np.load(os.path.join(a.input_mels_dir, filname))
-            x = np.expand_dims(x, 0)
+            if len(x.shape) == 2:
+                x = np.expand_dims(x, 0)
             x = torch.FloatTensor(x).to(device)
             y_g_hat = generator(x)
             audio = y_g_hat.squeeze()
