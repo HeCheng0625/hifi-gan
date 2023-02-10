@@ -1,12 +1,13 @@
-python train.py \
---input_wavs_dir="/blob/v-yuancwang/audio_editing_data/audioset96/wav" \
---input_mels_dir="" \
---input_training_file="/home/v-yuancwang/hifi-gan/audioset96_train.txt" \
---input_validation_file="/home/v-yuancwang/hifi-gan/audioset96_val.txt" \
+/opt/conda/envs/py3.7/bin/python /home/v-yuancwang/AudioEditing/hifi-gan/train.py \
+--input_wavs_dir="/blob/v-yuancwang/audio_editing_data/audiocaps/wav" \
+--input_mels_dir="/blob/v-yuancwang/audio_editing_data/audiocaps/vae_out" \
+--input_training_file="/home/v-yuancwang/AudioEditing/hifi-gan/audiocaps_train.txt" \
+--input_validation_file="/home/v-yuancwang/AudioEditing/hifi-gan/audiocaps_val.txt" \
 --checkpoint_path="/blob/v-yuancwang/hifigan_cp" \
---config="/home/v-yuancwang/hifi-gan/config_ours.json" \
---training_epochs=100 \
+--config="/home/v-yuancwang/AudioEditing/hifi-gan/config_ours.json" \
+--training_epochs=5 \
 --stdout_interval=5 \
 --checkpoint_interval=5000 \
 --summary_interval=100 \
 --validation_interval=1000 \
+--fine_tuning=True
