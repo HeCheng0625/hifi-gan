@@ -54,7 +54,7 @@ def inference(a):
             audio = audio * MAX_WAV_VALUE
             audio = audio.cpu().numpy().astype('int16')
 
-            output_file = os.path.join(a.output_dir, os.path.splitext(filname)[0] + '_sample_.wav')
+            output_file = os.path.join(a.output_dir, os.path.splitext(filname)[0] + '.wav')
             write(output_file, h.sampling_rate, audio)
             print(output_file)
 
